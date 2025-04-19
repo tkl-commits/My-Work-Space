@@ -1,42 +1,19 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import MuiButton, { ButtonProps } from '@mui/material/Button';
 
-export type ButtonProps = {
+type ColorButtonProps = Omit<ButtonProps, 'children'> & {
   label: string;
-  variant?: 'primary' | 'secondary' | 'danger';
-  disabled?: boolean;
-  onClick?: () => void;
 };
 
-const StyledButton = styled.button<Pick<ButtonProps, 'variant' | 'disabled'>>`
-  background-color: ${({ variant }) =>
-    variant === 'secondary'
-      ? '#e0e0e0'
-      : variant === 'danger'
-      ? 'tomato'
-      : 'limegreen'};
-  color: ${({ variant }) => (variant === 'secondary' ? '#333' : '#fff')};
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-`;
-
-export const Button = ({
+export const ColorButton: React.FC<ColorButtonProps> = ({
   label,
-  variant = 'primary',
-  disabled = false,
-  onClick,
-}: ButtonProps): React.ReactElement => {
-  return (
-    <StyledButton
-      variant={variant}
-      disabled={disabled}
-      onClick={disabled ? undefined : onClick}
-    >
-      {label}
-    </StyledButton>
-  );
-};
+  variant = 'contained',
+  color = 'primary',
+  ...rest
+}) => (
+  <MuiButton variant={variant} color={color} {...rest}>
+    {label}
+  </MuiButton>
+);
+
+export default ColorButton;

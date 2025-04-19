@@ -1,13 +1,18 @@
+import { ButtonProps, Button } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import { ColorButton } from './Button';
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<ButtonProps> = {
   title: 'UI/Button',
-  component: Button,
+  component: ColorButton,
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'danger'],
+      options: ['text', 'outlined', 'contained'],
+    },
+    color: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'success', 'error'],
     },
     disabled: { control: 'boolean' },
     onClick: { action: 'clicked' },
@@ -15,34 +20,44 @@ const meta: Meta<typeof Button> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<ButtonProps>;
 
 export const Primary: Story = {
   args: {
-    label: 'Primary Button',
-    variant: 'primary',
+    label: 'Primary',
+    variant: 'outlined',
+    color: 'primary',
   },
 };
-
 export const Secondary: Story = {
   args: {
-    label: 'Secondary Button',
-    variant: 'secondary',
+    label: 'Secondary',
+    variant: 'text',
+    color: 'secondary',
   },
 };
 
-export const Danger: Story = {
+export const Success: Story = {
   args: {
-    label: 'Danger Button',
-    variant: 'danger',
+    label: 'Success',
+    variant: 'contained',
+    color: 'success',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: 'Error',
+    variant: 'outlined',
+    color: 'error',
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Disabled Button',
-    variant: 'primary',
+    label: 'Disabled',
+    variant: 'contained',
+    color: 'primary',
     disabled: true,
   },
 };
