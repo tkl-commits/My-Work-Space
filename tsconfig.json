@@ -8,6 +8,16 @@
     },
     {
       "path": "./apps/my-workspace"
+    },
+    {
+      "path": "./ui-lib"
     }
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node10",
+      "customConditions": null
+    }
+  }
 }
