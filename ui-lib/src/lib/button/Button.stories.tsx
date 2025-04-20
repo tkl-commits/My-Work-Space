@@ -1,9 +1,9 @@
-import { ButtonProps, Button } from '@mui/material';
+import { ButtonProps } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ColorButton } from './Button';
 
 const meta: Meta<ButtonProps> = {
-  title: 'UI/Button',
+  title: 'Components/Button',
   component: ColorButton,
   argTypes: {
     variant: {
