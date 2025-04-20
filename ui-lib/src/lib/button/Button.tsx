@@ -10,10 +10,12 @@ export const ColorButton: React.FC<ColorButtonProps> = ({
   variant = 'contained',
   color = 'primary',
   ...rest
-}) => (
-  <MuiButton variant={variant} color={color} {...rest}>
-    {label}
-  </MuiButton>
-);
+}) => {
+  return (
+    <MuiButton variant={variant} color={color} {...rest}>
+      {label}
+    </MuiButton>
+  );
+};
 
 export default ColorButton;
