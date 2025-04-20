@@ -27,6 +27,7 @@ export const Primary: Story = {
     label: 'Primary',
     variant: 'outlined',
     color: 'primary',
+    
   },
 };
 export const Secondary: Story = {
